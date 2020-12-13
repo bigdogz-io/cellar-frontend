@@ -1,32 +1,36 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+  #app
+    loader(:active="!loaded")
+    .container
+      .app
+        app-header
+        router-view
+      app-footer
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { mapGetters } from 'vuex';
+import Loader from '@/components/Loader.vue';
+import AppHeader from '@/components/AppHeader.vue';
+import AppFooter from '@/components/AppFooter.vue';
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+  components: {
+    Loader,
+    AppHeader,
+    AppFooter,
+  },
+  computed: {
+    ...mapGetters({
+      cellarLoaded: 'cellar/loaded',
+    }),
+    loaded() {
+      return this.cellarLoaded;
+    },
+  },
+  async created() {
+    await this.$store.dispatch('cellar/get', '1234-5678-90AB-CDEF');
+    return true;
+  },
+};
+</script>

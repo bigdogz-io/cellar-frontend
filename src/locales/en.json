@@ -1,0 +1,11 @@
+{
+  "common": {
+  },
+  "loader": {
+    "message": "Grab a drink, loading your cellar"
+  },
+  "cellar": {
+    "noItems": "Oh shit, nothing is in your cellar",
+    "addItemsToEmpty": "Hit the liquor store and come back with something good"
+  }
+}

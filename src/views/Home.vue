@@ -1,18 +1,26 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  .home.has-padding-2
+    cellar(:items="items")
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { mapGetters, mapActions } from 'vuex';
+import Cellar from '@/components/Cellar.vue';
 
 export default {
-  name: 'Home',
   components: {
-    HelloWorld,
+    Cellar,
+  },
+  computed: {
+    ...mapGetters('cellar', [
+      'ownerId',
+      'items',
+    ]),
+  },
+  methods: {
+    ...mapActions('cellar', [
+      'get',
+    ]),
   },
 };
 </script>

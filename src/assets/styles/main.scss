@@ -1,0 +1,23 @@
+// Bulma overrides
+$custom-colors: ("help": ($purple, $white));
+$modal-z: 9999;
+$radius: 0.25em;
+$radius-large: 0.25em;
+
+// Buefy overrides
+$loading-background: rgba(255,255,255,1);
+$carousel-indicator-border: $white;
+$carousel-indicator-color: $blue;
+
+// import bulma and buefy
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+@import "helpers.scss";
+
+// override loading & slideout z-indexs to be over sticky header
+.loading-overlay.is-full-page,
+.slideout-panel-bg,
+.slideout-wrapper .slideout {
+  z-index: 999999 !important;
+}

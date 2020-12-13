@@ -1,0 +1,48 @@
+@for $i from 0 through 5 {
+  .has-padding-#{$i} {
+    padding: #{$i}em !important;
+  }
+  .has-padding-x-#{$i} {
+    padding-left: #{$i}em !important;
+    padding-right: #{$i}em !important;
+  }
+  .has-padding-y-#{$i} {
+    padding-top: #{$i}em !important;
+    padding-bottom: #{$i}em !important;
+  }
+  .has-margin-#{$i} {
+    margin: #{$i}em !important;
+  }
+  .has-margin-x-#{$i} {
+    margin-left: #{$i}em !important;
+    margin-right: #{$i}em !important;
+  }
+  .has-margin-y-#{$i} {
+    margin-top: #{$i}em !important;
+    margin-bottom: #{$i}em !important;
+  }
+
+  @each $direction in (top left bottom right) {
+    .has-padding-#{$direction}-#{$i} {
+      padding-#{$direction}: #{$i}em !important;
+    }
+    .has-margin-#{$direction}-#{$i} {
+      margin-#{$direction}: #{$i}em !important;
+    }
+  }
+}
+
+.divider {
+  background: $grey-lighter;
+  height: 1px;
+  margin-top: $size-6;
+  margin-bottom: $size-6;
+}
+
+.has-text-underline-none {
+  text-decoration: none;
+}
+
+.is-align-self-center {
+  align-self: center;
+}
